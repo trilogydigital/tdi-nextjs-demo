@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world123 
-    </h1>
-  )
+import Landing from '@/components/Landing/Landing';
+
+export default function LandingPage() {
+  return <Landing />;
 }
