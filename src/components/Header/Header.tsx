@@ -1,8 +1,20 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return (
-    <header className='bg-gray-100 dark:bg-gray-900 shadow'>
+    <header className='bg-gray-200 dark:bg-gray-900 shadow'>
       <div className='flex h-16 max-w-screen-xl mx-auto items-center justify-between px-4 sm:px-6 lg:px-8'>
         <div className='text-xl font-semibold text-gray-900 dark:text-white'>MyApp</div>
 
@@ -15,6 +27,9 @@ const Header = () => {
           </a>
           <a href='#' className='hover:text-gray-900 dark:hover:text-white'>
             Contact
+          </a>
+          <a href='#' onClick={() => setIsDarkMode(!isDarkMode)} className='hover:text-gray-900 dark:hover:text-white border-2 p-1 rounded-sm'>
+          {isDarkMode ? '🌞' : '🌙'}
           </a>
         </nav>
       </div>

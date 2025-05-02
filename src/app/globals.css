@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -33,5 +35,5 @@ body {
 } */
 
 .card {
-  @apply rounded-b-2xl border-red-600 border-2
+  @apply rounded-b-2xl border-red-600 border-5
 }
