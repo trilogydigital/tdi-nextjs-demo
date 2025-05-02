@@ -1,5 +1,5 @@
 import React from 'react'
-//import "./page.dashboard.css";
+import "./page.dashboard.css";
 import CardContainer from '@/components/CardContainer/CardContainer';
 import { fetchDashboardData } from '@/lib/api/contentful';
 

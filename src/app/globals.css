@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  transition: colors;
+  animation-duration: 500ms;
 }
 
 @theme inline {
@@ -36,4 +38,8 @@ body {
 
 .card {
   @apply rounded-b-2xl border-red-600 border-5
+}
+
+.theme-transistion {
+  @apply transition-colors duration-1000;
 }

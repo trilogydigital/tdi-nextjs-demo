@@ -14,7 +14,7 @@ const Header = () => {
   }, [isDarkMode]);
 
   return (
-    <header className='bg-gray-200 dark:bg-gray-900 shadow'>
+    <header className='theme-transistion bg-gray-200 dark:bg-gray-900 shadow'>
       <div className='flex h-16 max-w-screen-xl mx-auto items-center justify-between px-4 sm:px-6 lg:px-8'>
         <div className='text-xl font-semibold text-gray-900 dark:text-white'>MyApp</div>
 
