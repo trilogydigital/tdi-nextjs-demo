@@ -1,10 +1,12 @@
 import React from 'react'
 //import "./page.dashboard.css";
 import CardContainer from '@/components/CardContainer/CardContainer';
+import { fetchDashboardData } from '@/lib/api/contentful';
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
+  const data = await fetchDashboardData();
   return (
-    <div><CardContainer /></div>
+    <div className=''><CardContainer data={data.items}/></div>
   )
 }
 
