@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -37,9 +37,9 @@ body {
 } */
 
 .card {
-  @apply rounded-b-2xl border-red-600 border-5
+  @apply rounded-b-2xl border-red-600 border-5;
 }
 
-.theme-transistion {
+.theme-transition {
   @apply transition-colors duration-1000;
 }

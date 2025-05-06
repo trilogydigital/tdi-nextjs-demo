@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@/components/Card/Card';
+import DashboardCard from '../DashboardCard/DashboardCard';
 
 const CardContainer = ({ data }) => {
   return (
@@ -7,7 +7,7 @@ const CardContainer = ({ data }) => {
       {data.map((media: { fields: { title: string; description1: string; image: string }; sys: { id: string } }) => {
         const { fields } = media;
         const { title, description1, image } = fields;
-        return <Card key={media.sys.id} title={title} description={description1} image={image} />;
+        return <DashboardCard key={media.sys.id} title={title} description={description1} image={image} />;
       })}
     </div>
   );
