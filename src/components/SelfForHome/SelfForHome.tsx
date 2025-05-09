@@ -19,7 +19,7 @@ export default function ShelfForHome({ items, cardAspectRatio = 16 / 9 }: { item
 
   return (
     <div className='bg-black text-white min-h-screen p-6 w-full'>
-      <div className='container mx-auto'>
+      <div className=' mx-auto'>
         <h1 className='text-3xl font-bold mb-6'>Shows</h1>
         <CardGrid items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
       </div>
