@@ -34,7 +34,7 @@ export default function ShelfForCuratedList({ playlist, media, cardAspectRatio =
         onTabChange={setActiveTab}
       />
 
-      <div className='container mx-auto p-6'>
+      <div className=' mx-auto p-6'>
         <h2 className='text-3xl font-bold mb-6'>Shows</h2>
         <CardGrid items={playlist} cardAspectRatio={cardAspectRatio} isCardEnhanced={true} />
       </div>

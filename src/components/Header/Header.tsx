@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className='bg-black text-white w-full flex-grow'>
-      <div className='flex items-center justify-between px-4 py-3 max-w-7xl mx-auto'>
+      <div className='flex items-center justify-between px-6 py-3  '>
         {/* Logo */}
         <div className='flex items-center'>
           <Link href='/' className='font-bold text-2xl'>
