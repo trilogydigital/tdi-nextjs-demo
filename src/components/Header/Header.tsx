@@ -34,14 +34,14 @@ export default function Header() {
           <Link href='/' className='hover:text-gray-300'>
             Home
           </Link>
-          <Link href='/shows' className='hover:text-gray-300'>
+          <Link href='/series' className='hover:text-gray-300'>
             Shows
           </Link>
           <Link href='/live' className='hover:text-gray-300'>
-            Live
+            {/* Live */}.
           </Link>
           <Link href='/teachers' className='hover:text-gray-300'>
-            Teachers
+            {/* Teachers */}.
           </Link>
         </nav>
 
@@ -57,7 +57,7 @@ export default function Header() {
           <button className='hover:text-gray-300'>Login</button>
           <button className='bg-white text-black rounded px-4 py-1 hover:bg-gray-200 transition-colors'>Sign up</button>
           <Link href='#' onClick={() => setIsDarkMode(!isDarkMode)} className='hover:text-gray-900 dark:hover:text-white border-2 p-1 rounded-sm'>
-            {isDarkMode ? '🌞' : '🌙'}
+            {/* {isDarkMode ? '🌞' : '🌙'} */}.
           </Link>
         </div>
 
@@ -74,7 +74,7 @@ export default function Header() {
             <Link href='/' className='hover:text-gray-300'>
               Home
             </Link>
-            <Link href='/shows' className='hover:text-gray-300'>
+            <Link href='/series' className='hover:text-gray-300'>
               Shows
             </Link>
             <Link href='/live' className='hover:text-gray-300'>
