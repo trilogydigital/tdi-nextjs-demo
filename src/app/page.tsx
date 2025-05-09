@@ -1,5 +1,8 @@
-import Landing from '@/components/Landing/Landing';
+import ShelfForHome from '@/components/SelfForHome/SelfForHome';
+import { fetchSeriesPlaylist } from '@/lib/services/api.service';
 
-export default function LandingPage() {
-  return <Landing />;
+export default async function LandingPage() {
+  const data = await fetchSeriesPlaylist();
+
+  return <ShelfForHome items={data.playlist} />;
 }

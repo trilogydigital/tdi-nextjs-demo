@@ -43,7 +43,7 @@ export const transformPipes2ResponseToJwPlayer = (playlist: any) => {
   };
 };
 
-export async function fetchShowsData() {
+export async function fetchSeriesPlaylist() {
   const res = await fetch(
     'https://tbn-dsp-curation-api-prod.tbncloud.com/web/virtual_feed?page_limit=100&page_offset=1&virtualfeed=true&playlistid=b2c2050e&okta_id=00upfqp1oz8uwnrqx697&network=TBN&app_name=TBN',
   );
@@ -53,3 +53,21 @@ export async function fetchShowsData() {
   const data = transformPipes2ResponseToJwPlayer(rawData);
   return data;
 }
+export async function fetchShowPlaylist(id: string) {
+  const res = await fetch(`https://tbn-dsp-api-prod.tbncloud.com/v2/playlist?playlistid=${id}&page_limit=499&page_offset=1`);
+
+  if (!res.ok) throw new Error('Failed to fetch shows data');
+  const rawData = await res.json();
+  const data = transformPipes2ResponseToJwPlayer(rawData);
+  return data;
+}
+export async function fetchShowMedia(id: string) {
+  const res = await fetch(`https://tbn-dsp-api-prod.tbncloud.com/v2/media?mediaid=${id}`);
+
+  if (!res.ok) throw new Error('Failed to fetch shows data');
+  const rawData = await res.json();
+  const data = transformPipes2ResponseToJwPlayer(rawData);
+  return data;
+}
+
+
