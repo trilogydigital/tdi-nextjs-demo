@@ -27,6 +27,7 @@ export default function ShelfForCuratedList({ playlist, media, cardAspectRatio =
     <div className='bg-black text-white min-h-screen w-full'>
       <ShowBanner
         title={featuredContent?.title}
+        logo={featuredContent?.imgSeriesLogo}
         subtitle='25'
         description={featuredContent?.description}
         episodeCount={20}

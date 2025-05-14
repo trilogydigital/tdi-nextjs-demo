@@ -70,4 +70,13 @@ export async function fetchShowMedia(id: string) {
   return data;
 }
 
+export async function fetchLiveChannelsPlaylist() {
+  const res = await fetch(
+    'https://tbn-dsp-curation-api-prod.tbncloud.com/web/virtual_feed?virtualfeed=false&page_limit=1&page_offset=20&playlistid=wUwJ86KF&page_offset=1&page_limit=100&network=TBN&app_name=TBN',
+  );
 
+  if (!res.ok) throw new Error('Failed to fetch shows data');
+  const rawData = await res.json();
+  const data = transformPipes2ResponseToJwPlayer(rawData);
+  return data;
+}

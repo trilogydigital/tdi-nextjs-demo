@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import CardGrid from '../CardGrid/CardGrid';
+import TileDock from '../TileDock/TileDock';
 
 type Show = {
   title: string;
@@ -19,9 +19,11 @@ export default function ShelfForHome({ items, cardAspectRatio = 16 / 9 }: { item
 
   return (
     <div className='bg-black text-white min-h-screen p-6 w-full'>
-      <div className=' mx-auto'>
+      <div className='w-full overflow-x-hidden mx-auto'>
         <h1 className='text-3xl font-bold mb-6'>Shows</h1>
-        <CardGrid items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
+        <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
+        <h1 className='text-3xl font-bold mb-6'>Showsfgadhgffggbksdyvbkjsdbcjhbd vljsbdvlugdbliubsdlkvcjbSDkjvblksjdbvlkjsdbvlkjsdbvlsdbvlkbv;skd</h1>
+        <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
       </div>
     </div>
   );
