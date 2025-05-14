@@ -1,8 +1,11 @@
-import ShelfForHome from '@/components/SelfForHome/SelfForHome';
-import { fetchSeriesPlaylist } from '@/lib/services/api.service';
+import HomeContent from './content';
+import Loader from '@/components/Loader/Loader';
+import { Suspense } from 'react';
 
-export default async function LandingPage() {
-  const data = await fetchSeriesPlaylist();
-
-  return <ShelfForHome items={data.playlist} />;
+export default async function HomePage() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <HomeContent />
+    </Suspense>
+  );
 }

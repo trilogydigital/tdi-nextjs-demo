@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='dark'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen px-6`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Header />
         <main className='theme-transition  bg-black dark:bg-white'>{children}</main>
         <Footer />
