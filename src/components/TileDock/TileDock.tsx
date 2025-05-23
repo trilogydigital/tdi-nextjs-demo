@@ -25,7 +25,7 @@ type CardCarouselProps = {
   onCardClick?: (seriesId: string, mediaid: string) => void;
 };
 
-export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced = false, onCardClick }: CardCarouselProps) {
+export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced = true, onCardClick }: CardCarouselProps) {
   const [slidesPerView, setSlidesPerView] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -94,7 +94,7 @@ export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced =
           const isVisible = index >= activeIndex && index < activeIndex + slidesPerView;
           return (
             <SwiperSlide key={index} className={isVisible ? 'opacity-100' : 'opacity-50'}>
-              <Card item={item} cardAspectRatio={cardAspectRatio} isCardEnhanced={isCardEnhanced} onClick={onCardClick} />
+              <Card item={item} cardAspectRatio={cardAspectRatio} isCardEnhanced={isCardEnhanced} onClick={onCardClick} isTileDock />
             </SwiperSlide>
           );
         })}

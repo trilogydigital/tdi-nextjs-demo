@@ -19,11 +19,16 @@ export default function ShelfForHome({ items, cardAspectRatio = 16 / 9 }: { item
 
   return (
     <div className='bg-black text-white min-h-screen p-6 w-full'>
-      <div className='w-full overflow-x-hidden mx-auto'>
+      <div className='w-full h-screen overflow-x-hidden mx-auto'>
         <h1 className='text-3xl font-bold mb-6'>Shows</h1>
-        <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
-        <h1 className='text-3xl font-bold mb-6'>Showsfgadhgffggbksdyvbkjsdbcjhbd vljsbdvlugdbliubsdlkvcjbSDkjvblksjdbvlkjsdbvlkjsdbvlsdbvlkbv;skd</h1>
-        <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
+
+        <div className='relative hover:z-20 z-10 transition-all duration-300'>
+          <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
+        </div>
+
+        <div className='relative hover:z-20 z-10 transition-all duration-300'>
+          <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
+        </div>
       </div>
     </div>
   );

@@ -16,9 +16,10 @@ type ShowCardProps = {
   onClick?: (seriesId: string, mediaId: string) => void;
   overlayTitleOnHover?: boolean;
   isCardEnhanced?: boolean;
+  isTileDock?: boolean;
 };
 
-export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEnhanced = false }: ShowCardProps) {
+export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEnhanced = false, isTileDock = false }: ShowCardProps) {
   const { title, images, description, seriesId, mediaid } = item;
   const [isHovering, setIsHovering] = useState(false);
 
@@ -36,9 +37,9 @@ export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEn
       onMouseLeave={() => setIsHovering(false)}
     >
       <div
-        className={`w-full ${isHovering ? 'z-20 scale-104' : 'z-0 scale-100'} ${isCardEnhanced && isHovering ? 'absolute' : 'relative'} ${
-          isCardEnhanced ? 'transition-transform duration-400 ease-in-out delay-0' : 'transition-transform duration-300'
-        }`}
+        className={`w-full ${isHovering ? 'z-20 scale-104' : 'z-0 scale-100'} ${isCardEnhanced && isHovering && !isTileDock ? 'absolute' : 'relative'} ${
+          isTileDock && 'relative'
+        } ${isCardEnhanced ? 'transition-transform duration-400 ease-in-out delay-0' : 'transition-transform duration-300'}`}
         style={{ inset: 0 }}
       >
         <div
@@ -64,7 +65,7 @@ export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEn
         </div>
       </div>
 
-      <h3 className={`mt-2 text-sm font-medium break-words transition-opacity duration-300 ${isCardEnhanced && isHovering ? 'opacity-0' : 'opacity-100'}`}>{title}</h3>
+      <h3 className={`mt-2 text-sm font-medium break-words ${isCardEnhanced && isHovering ? 'opacity-0' : 'opacity-100'}`}>{title}</h3>
     </div>
   );
 }
