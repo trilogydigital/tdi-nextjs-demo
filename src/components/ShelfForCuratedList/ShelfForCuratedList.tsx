@@ -24,7 +24,7 @@ export default function ShelfForCuratedList({ playlist, media, cardAspectRatio =
   const featuredContent = media && media.length > 0 ? media[0] : null;
 
   return (
-    <div className='bg-black text-white min-h-screen w-full'>
+    <div className='absolute bg-black text-white min-h-screen w-full top-0 z-10'>
       <ShowBanner
         title={featuredContent?.title}
         logo={featuredContent?.imgSeriesLogo}
@@ -35,7 +35,7 @@ export default function ShelfForCuratedList({ playlist, media, cardAspectRatio =
         onTabChange={setActiveTab}
       />
 
-      <div className=' mx-auto p-6'>
+      <div className=' mx-auto px-12 py-6'>
         <h2 className='text-3xl font-bold mb-6'>Shows</h2>
         <CardGrid items={playlist} cardAspectRatio={cardAspectRatio} isCardEnhanced={true} />
       </div>

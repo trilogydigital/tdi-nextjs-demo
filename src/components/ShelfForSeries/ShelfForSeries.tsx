@@ -18,7 +18,7 @@ export default function ShelfForSeries({ items, cardAspectRatio = 16 / 9 }: { it
   };
 
   return (
-    <div className='bg-black text-white min-h-screen p-6 w-full'>
+    <div className='bg-black text-white min-h-screen px-12 py-6 w-full'>
       <div className=' mx-auto'>
         <h1 className='text-3xl font-bold mb-6'>Shows</h1>
         <CardGrid items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />

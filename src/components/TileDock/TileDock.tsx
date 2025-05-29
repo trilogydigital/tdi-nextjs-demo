@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Card from '../Card/Card';
 
-type playlist = {
+type Playlist = {
   title: string;
   seriesId: string;
   mediaid: string;
@@ -19,13 +19,14 @@ type playlist = {
 };
 
 type CardCarouselProps = {
-  items: playlist[];
+  items: Playlist[];
   cardAspectRatio?: number;
   isCardEnhanced?: boolean;
   onCardClick?: (seriesId: string, mediaid: string) => void;
+  TopTenNumber?: number[]; // Added this
 };
 
-export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced = true, onCardClick }: CardCarouselProps) {
+export default function Tile({ TopTenNumber = [], items, cardAspectRatio = 16 / 9, isCardEnhanced = true, onCardClick }: CardCarouselProps) {
   const [slidesPerView, setSlidesPerView] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -60,11 +61,11 @@ export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced =
   }, []);
 
   return (
-    <div className='relative mx-14 h-60 group'>
-      {/* Custom Chevron Icons */}
+    <div className=' relative mx-14 h-50 group hover:z-20 z-10 transition-all duration-300 '>
+      {/* Chevron Buttons */}
       <button
         onClick={handlePrev}
-        className='absolute left-[-50px] top-18 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
+        className='absolute left-[-50px] top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
         aria-label='Previous Slide'
       >
         <ChevronLeft className='w-6 h-6 text-white transition-transform duration-500 ease-in-out hover:scale-125' />
@@ -72,7 +73,7 @@ export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced =
 
       <button
         onClick={handleNext}
-        className='absolute right-[-50px] top-18 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
+        className='absolute right-[-50px] top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
         aria-label='Next Slide'
       >
         <ChevronRight className='w-6 h-6 text-white transition-transform duration-500 ease-in-out hover:scale-125' />
@@ -92,9 +93,11 @@ export default function Tile({ items, cardAspectRatio = 16 / 9, isCardEnhanced =
       >
         {items.map((item, index) => {
           const isVisible = index >= activeIndex && index < activeIndex + slidesPerView;
+          const showTopTen = TopTenNumber?.includes(index);
+
           return (
-            <SwiperSlide key={index} className={isVisible ? 'opacity-100' : 'opacity-50'}>
-              <Card item={item} cardAspectRatio={cardAspectRatio} isCardEnhanced={isCardEnhanced} onClick={onCardClick} isTileDock />
+            <SwiperSlide key={index} className={` ${isVisible ? 'opacity-100' : 'opacity-50'}`}>
+              <Card item={item} cardAspectRatio={cardAspectRatio} isCardEnhanced={isCardEnhanced} onClick={onCardClick} isTileDock showTopTen={showTopTen} />
             </SwiperSlide>
           );
         })}

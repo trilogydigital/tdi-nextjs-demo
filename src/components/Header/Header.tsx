@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -17,8 +17,8 @@ export default function Header() {
   }, [isDarkMode]);
 
   return (
-    <header className='bg-black text-white w-full flex-grow'>
-      <div className='flex items-center justify-between px-6 py-3  '>
+    <header className='bg-black/0 text-white w-full flex-grow z-20'>
+      <div className='flex items-center justify-between px-14 py-3  '>
         {/* Logo */}
         <div className='flex items-center'>
           <Link href='/' className='font-bold text-2xl'>

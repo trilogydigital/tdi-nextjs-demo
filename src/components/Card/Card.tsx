@@ -1,25 +1,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import { CardProps } from '../../../types/card';
 
-type Show = {
-  title: string;
-  description?: string;
-  images: { src: string }[];
-  seriesId: string;
-  mediaid: string;
-};
-
-type ShowCardProps = {
-  item: Show;
-  cardAspectRatio?: number;
-  onClick?: (seriesId: string, mediaId: string) => void;
-  overlayTitleOnHover?: boolean;
-  isCardEnhanced?: boolean;
-  isTileDock?: boolean;
-};
-
-export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEnhanced = false, isTileDock = false }: ShowCardProps) {
+export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEnhanced = false, isTileDock = false }: CardProps) {
   const { title, images, description, seriesId, mediaid } = item;
   const [isHovering, setIsHovering] = useState(false);
 
@@ -64,8 +48,7 @@ export default function Card({ item, cardAspectRatio = 16 / 9, onClick, isCardEn
           )}
         </div>
       </div>
-
-      <h3 className={`mt-2 text-sm font-medium break-words ${isCardEnhanced && isHovering ? 'opacity-0' : 'opacity-100'}`}>{title}</h3>
+      {!isTileDock && <h3 className={`mt-2 text-sm font-medium break-words ${isCardEnhanced && isHovering ? 'opacity-0' : 'opacity-100'}`}>{title}</h3>}
     </div>
   );
 }
