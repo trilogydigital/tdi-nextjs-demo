@@ -22,8 +22,6 @@ export default function ShelfForHome({ items, cardAspectRatio = 16 / 9 }: { item
       <div className='w-full overflow-x-hidden mx-auto'>
         <h1 className='text-3xl font-bold mb-6'>Shows</h1>
         <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
-        <h1 className='text-3xl font-bold mb-6'>Showsfgadhgffggbksdyvbkjsdbcjhbd vljsbdvlugdbliubsdlkvcjbSDkjvblksjdbvlkjsdbvlkjsdbvlsdbvlkbv;skd</h1>
-        <TileDock items={items} cardAspectRatio={cardAspectRatio} onCardClick={handleClick} />
       </div>
     </div>
   );
